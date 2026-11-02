@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | MOLIE BLOOM</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        :root {
+            --pink: #e8b9c3;
+            --pink-light: #f9e9ec;
+            --pink-dark: #b86f83;
+            --sage: #a8b8a0;
+            --sage-dark: #657c63;
+            --cream: #fffaf4;
+            --brown: #55433e;
+            --text: #665954;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .about-hero {
+            min-height: 390px;
+            padding: 85px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 15% 25%, #ffffffb5 0 5%, transparent 6%),
+                radial-gradient(circle at 85% 75%, #ffffffa0 0 7%, transparent 8%),
+                linear-gradient(135deg, #f8e5e8, #fff8f0 55%, #e9eee4);
+        }
+
+        .hero-content {
+            max-width: 750px;
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 1s ease both;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--sage-dark);
+            background: #ffffffa8;
+            border: 1px solid #d9e1d3;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(38px, 6vw, 65px);
+            color: var(--brown);
+            font-weight: 500;
+            margin: 0 0 18px;
+            line-height: 1.2;
+        }
+
+        .about-hero h1 span {
+            color: var(--pink-dark);
+            font-style: italic;
+        }
+
+        .about-hero p {
+            max-width: 570px;
+            margin: 0 auto;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .flower-decoration {
+            position: absolute;
+            font-size: 65px;
+            opacity: 0.45;
+            animation: floatFlower 5s ease-in-out infinite;
+            user-select: none;
+        }
+
+        .flower-one {
+            left: 8%;
+            top: 18%;
+        }
+
+        .flower-two {
+            right: 9%;
+            bottom: 13%;
+            animation-delay: 1.5s;
+        }
+
+        .flower-three {
+            right: 17%;
+            top: 12%;
+            font-size: 36px;
+            animation-delay: 2s;
+        }
+
+        .section {
+            padding: 75px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading .small-title {
+            color: var(--pink-dark);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(29px, 4vw, 42px);
+            color: var(--brown);
+            font-weight: 500;
+            margin: 12px 0;
+        }
+
+        .section-heading p {
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 55px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .story-image {
+            position: relative;
+            padding: 0 15px 15px 0;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            border-radius: 180px 180px 18px 18px;
+            display: block;
+            background: var(--pink-light);
+        }
+
+        .story-image::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 18px;
+            left: 18px;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--sage);
+            border-radius: 180px 180px 18px 18px;
+        }
+
+        .story-text .small-title {
+            color: var(--sage-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .story-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 4vw, 43px);
+            color: var(--brown);
+            font-weight: 500;
+            line-height: 1.3;
+            margin: 14px 0 20px;
+        }
+
+        .story-text h2 span {
+            color: var(--pink-dark);
+            font-style: italic;
+        }
+
+        .story-text p {
+            font-size: 14px;
+            line-height: 2;
+            margin-bottom: 16px;
+        }
+
+        .signature {
+            color: var(--pink-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-style: italic;
+            margin-top: 25px;
+        }
+
+        .values-section {
+            background: #f7e9e9;
+        }
+
+        .values-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .value-card {
+            text-align: center;
+            background: #fffdf9;
+            padding: 35px 25px;
+            border-radius: 18px;
+            border: 1px solid #f0dce0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px #9b6c6c18;
+        }
+
+        .value-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--pink-light);
+            font-size: 30px;
+        }
+
+        .value-card:nth-child(2) .value-icon {
+            background: #eaf0e6;
+        }
+
+        .value-card:nth-child(3) .value-icon {
+            background: #f8eee0;
+        }
+
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+            color: var(--brown);
+            font-weight: 500;
+            margin: 0 0 12px;
+        }
+
+        .value-card p {
+            font-size: 13px;
+            line-height: 1.9;
+            margin: 0;
+        }
+
+        .mission-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .mission-card {
+            padding: 35px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid #eee5dc;
+        }
+
+        .mission-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--sage-dark);
+            font-size: 28px;
+            margin: 0 0 18px;
+            font-weight: 500;
+        }
+
+        .mission-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mission-card li {
+            font-size: 14px;
+            line-height: 1.8;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1ebe4;
+        }
+
+        .mission-card li:last-child {
+            border-bottom: none;
+        }
+
+        .mission-card li::before {
+            content: "✿";
+            color: var(--pink-dark);
+            margin-right: 10px;
+        }
+
+        .about-cta {
+            padding: 65px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #e7eee2, #f8e7e9);
+        }
+
+        .about-cta h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--brown);
+            font-size: clamp(30px, 4vw, 42px);
+            font-weight: 500;
+            margin: 0 0 15px;
+        }
+
+        .about-cta p {
+            max-width: 550px;
+            margin: 0 auto 25px;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--sage-dark);
+            color: white;
+            padding: 13px 27px;
+            border-radius: 30px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--pink-dark);
+            transform: translateY(-2px);
+        }
+
+        .site-footer {
+            background: #e9eee4;
+            padding: 45px 7% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 35px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            color: var(--brown);
+            font-weight: 700;
+        }
+
+        .footer-brand span {
+            color: var(--pink-dark);
+        }
+
+        .footer-column h3 {
+            color: var(--brown);
+            font-size: 15px;
+            margin: 5px 0 17px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 13px;
+            line-height: 2;
+            color: var(--text);
+        }
+
+        .footer-column a:hover {
+            color: var(--pink-dark);
+        }
+
+        .footer-bottom {
+            max-width: 1150px;
+            margin: 30px auto 0;
+            padding-top: 18px;
+            border-top: 1px solid #d2dbcb;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatFlower {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .section {
+                padding: 55px 6%;
+            }
+
+            .story {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .story-image {
+                max-width: 500px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .story-image img {
+                height: 380px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .flower-one {
+                left: 2%;
+            }
+
+            .flower-two {
+                right: 2%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .about-hero {
+                min-height: 340px;
+                padding: 65px 20px;
+            }
+
+            .flower-decoration {
+                font-size: 40px;
+            }
+
+            .story-image img {
+                height: 320px;
+            }
+
+            .mission-card {
+                padding: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            MOLIE <span>BLOOM.</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="produk.html">Produk</a>
+            <a href="tentang.html" class="active">Tentang Kami</a>
+            <a href="kontak.html">Kontak</a>
+        </nav>
+
+        <a href="keranjang.html" class="cart-button">
+            🛒 Keranjang
+            <span id="cartCount">0</span>
+        </a>
+    </header>
+
+    <!-- HERO -->
+    <section class="about-hero">
+        <span class="flower-decoration flower-one">🌸</span>
+        <span class="flower-decoration flower-two">🌷</span>
+        <span class="flower-decoration flower-three">✿</span>
+
+        <div class="hero-content">
+            <span class="eyebrow">A Little Story About Us</span>
+            <h1>Mengenal <span>MOLIE BLOOM</span></h1>
+            <p>
+                Setiap bunga memiliki cerita, dan setiap rangkaian memiliki
+                cara tersendiri untuk menyampaikan rasa. Kami hadir untuk
+                menemani momen spesialmu dengan rangkaian bunga yang penuh makna.
+            </p>
+        </div>
+    </section>
+
+    <!-- CERITA KAMI -->
+    <section class="section">
+        <div class="story">
+            <div class="story-image">
+                <img
+                    src="images/739223726380581282.jfif"
+                    alt="Rangkaian bunga cantik MOLIE BLOOM"
+                >
+            </div>
+
+            <div class="story-text">
+                <span class="small-title">Our Little Story</span>
+                <h2>Bunga sederhana, <span>makna luar biasa.</span></h2>
+
+                <p>
+                    MOLIE BLOOM adalah toko buket bunga yang hadir untuk
+                    membantu setiap orang menyampaikan perasaan melalui
+                    rangkaian bunga yang indah dan berkesan.
+                </p>
+
+                <p>
+                    Kami percaya bahwa bunga bukan hanya hadiah, tetapi juga
+                    cara untuk mengungkapkan kasih sayang, rasa terima kasih,
+                    kebahagiaan, dan dukungan kepada orang-orang tersayang.
+                </p>
+
+                <p>
+                    Karena itu, setiap buket dirancang dengan perhatian pada
+                    perpaduan warna, pemilihan bunga, dan detail kemasan agar
+                    dapat menjadi hadiah istimewa untuk setiap kesempatan.
+                </p>
+
+                <div class="signature">With love, MOLIE BLOOM ♡</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NILAI KAMI -->
+    <section class="section values-section">
+        <div class="section-heading">
+            <span class="small-title">What Makes Us Special</span>
+            <h2>Lebih dari Sekadar Buket</h2>
+            <p>
+                Kami ingin setiap rangkaian bunga memberikan kesan yang
+                menyenangkan, mulai dari proses pemilihan hingga saat diterima.
+            </p>
+        </div>
+
+        <div class="values-grid">
+            <article class="value-card">
+                <div class="value-icon">🌷</div>
+                <h3>Dirangkai dengan Hati</h3>
+                <p>
+                    Setiap buket dirancang dengan penuh perhatian agar
+                    tampil cantik dan cocok untuk momen spesialmu.
+                </p>
+            </article>
+
+            <article class="value-card">
+                <div class="value-icon">🎀</div>
+                <h3>Desain Menarik</h3>
+                <p>
+                    Perpaduan warna bunga dan kemasan dipilih agar menghasilkan
+                    tampilan manis, elegan, dan berkesan.
+                </p>
+            </article>
+
+            <article class="value-card">
+                <div class="value-icon">💌</div>
+                <h3>Penuh Makna</h3>
+                <p>
+                    Buket kami cocok untuk ulang tahun, wisuda, hari spesial,
+                    ucapan terima kasih, maupun hadiah untuk orang tersayang.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- VISI DAN MISI -->
+    <section class="section">
+        <div class="section-heading">
+            <span class="small-title">Our Purpose</span>
+            <h2>Visi dan Misi Kami</h2>
+            <p>
+                Menjadikan bunga sebagai cara sederhana untuk berbagi
+                kebahagiaan dan menyampaikan perasaan.
+            </p>
+        </div>
+
+        <div class="mission-grid">
+            <article class="mission-card">
+                <h3>Visi</h3>
+                <p>
+                    Menjadi toko buket bunga yang dipercaya untuk menghadirkan
+                    rangkaian bunga yang indah, kreatif, dan bermakna bagi
+                    setiap pelanggan.
+                </p>
+            </article>
+
+            <article class="mission-card">
+                <h3>Misi</h3>
+                <ul>
+                    <li>Menyediakan buket dengan desain yang menarik dan beragam.</li>
+                    <li>Memperhatikan kualitas rangkaian dan kerapian kemasan.</li>
+                    <li>Memberikan pelayanan yang ramah dan membantu pelanggan.</li>
+                    <li>Menghadirkan pilihan hadiah untuk berbagai kesempatan.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <!-- AJAKAN -->
+    <section class="about-cta">
+        <h2>Share a Little Happiness 🌸</h2>
+        <p>
+            Temukan buket yang paling sesuai untuk orang tersayang.
+            Biarkan rangkaian bunga membantu menyampaikan kata-kata
+            yang terkadang sulit diungkapkan.
+        </p>
+        <a href="produk.html" class="cta-button">Lihat Koleksi Buket</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <a href="index.html" class="footer-brand">
+                    MOLIE <span>BLOOM.</span>
+                </a>
+                <p>
+                    Merangkai bunga, membagikan cerita, dan menghadirkan
+                    kebahagiaan dalam setiap momen.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Hubungi Kami</h3>
+                <p>WhatsApp:
+                    <a href="https://wa.me/6281234567890">
+                        0812-3456-7890
+                    </a>
+                </p>
+                <p>Instagram:
+                    <a href="https://instagram.com/molie.bloom" target="_blank">
+                        @molie.bloom
+                    </a>
+                </p>
+                <p>Email:
+                    <a href="mailto:moliebloom@example.com">
+                        moliebloom@example.com
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Informasi Toko</h3>
+                <p>Alamat: Jl. Gardenia No. 12, Pekalongan</p>
+                <p>Jam Operasional: 08.00–20.00 WIB</p>
+                <p>Desain by: MOLIE BLOOM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © <span id="currentYear"></span> MOLIE BLOOM. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Menampilkan jumlah produk di keranjang
+        function updateCartCount() {
+            const cart = JSON.parse(
+                localStorage.getItem("molieBloomCart")
+            ) || [];
+
+            const total = Array.isArray(cart)
+                ? cart.reduce((sum, item) => sum + (Number(item.quantity) || 1), 0)
+                : Object.values(cart).reduce(
+                    (sum, item) => sum + (Number(item.quantity) || 1), 0
+                );
+
+            const countElement = document.getElementById("cartCount");
+
+            if (countElement) {
+                countElement.textContent = total;
+            }
+        }
+
+        // Tahun otomatis pada footer
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        updateCartCount();
+    </script>
+
+</body>
+</html>

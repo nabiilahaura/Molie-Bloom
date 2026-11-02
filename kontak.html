@@ -1,0 +1,964 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak | MOLIE BLOOM</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #fffaf4;
+            --pink: #f5e3e5;
+            --pink-dark: #ad737d;
+            --pink-deep: #80545c;
+            --green: #dce5d5;
+            --green-dark: #65765e;
+            --text: #554a46;
+            --muted: #8c7d76;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button, input, textarea {
+            font: inherit;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 18px 7%;
+            background: rgba(255, 250, 244, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eadfda;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--pink-deep);
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--green-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--pink-dark);
+        }
+
+        .cart-link {
+            background: var(--pink);
+            color: var(--pink-deep);
+            padding: 9px 15px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* JUMBOTRON */
+        .contact-hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 360px;
+            padding: 75px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(
+                125deg,
+                #f8e8e8 0%,
+                #fffaf4 48%,
+                #e2eadb 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            animation: fadeUp 1s ease both;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 17px;
+            margin-bottom: 17px;
+            border: 1px solid #d9c8bd;
+            border-radius: 30px;
+            color: var(--green-dark);
+            background: rgba(255,255,255,0.55);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .contact-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 6vw, 65px);
+            line-height: 1.2;
+            color: var(--pink-deep);
+            margin-bottom: 20px;
+        }
+
+        .contact-hero h1 span {
+            color: var(--green-dark);
+            font-style: italic;
+        }
+
+        .contact-hero p {
+            max-width: 570px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .hero-flower {
+            position: absolute;
+            font-size: clamp(55px, 9vw, 100px);
+            opacity: 0.65;
+            animation: floatFlower 5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .flower-one {
+            top: 35px;
+            left: 8%;
+        }
+
+        .flower-two {
+            right: 9%;
+            bottom: 25px;
+            animation-delay: 1.5s;
+        }
+
+        .flower-three {
+            top: 35px;
+            right: 23%;
+            font-size: 38px;
+            animation-delay: 0.8s;
+        }
+
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.32);
+            animation: pulse 5s ease-in-out infinite;
+        }
+
+        .circle-one {
+            width: 180px;
+            height: 180px;
+            bottom: -90px;
+            left: 24%;
+        }
+
+        .circle-two {
+            width: 110px;
+            height: 110px;
+            top: -45px;
+            right: 30%;
+        }
+
+        /* GENERAL SECTIONS */
+        .section {
+            padding: 75px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .section-heading .small-title {
+            color: var(--pink-dark);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(29px, 4vw, 42px);
+            color: var(--pink-deep);
+            margin: 10px 0;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CONTACT CARDS */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border: 1px solid #eee4dc;
+            border-radius: 22px;
+            padding: 28px 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(100, 75, 65, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 32px rgba(100, 75, 65, 0.10);
+        }
+
+        .contact-icon {
+            width: 58px;
+            height: 58px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 16px;
+            background: var(--pink);
+            border-radius: 18px;
+            font-size: 27px;
+        }
+
+        .contact-card:nth-child(even) .contact-icon {
+            background: var(--green);
+        }
+
+        .contact-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            color: var(--pink-deep);
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-card a {
+            display: inline-block;
+            margin-top: 12px;
+            color: var(--green-dark);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .contact-card a:hover {
+            color: var(--pink-dark);
+        }
+
+        /* FORM SECTION */
+        .message-section {
+            background: linear-gradient(135deg, #f5e6e6, #f0f3e9);
+        }
+
+        .message-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: center;
+            gap: 55px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .message-info h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.25;
+            color: var(--pink-deep);
+            margin: 13px 0 18px;
+        }
+
+        .message-info p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .message-note {
+            margin-top: 25px;
+            padding: 18px;
+            border-left: 4px solid var(--green-dark);
+            background: rgba(255,255,255,0.55);
+            border-radius: 0 12px 12px 0;
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        .contact-form {
+            padding: 32px;
+            background: var(--white);
+            border-radius: 25px;
+            box-shadow: 0 12px 35px rgba(100, 75, 65, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            color: var(--pink-deep);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #e7dcd6;
+            border-radius: 12px;
+            padding: 13px 15px;
+            background: #fffdfb;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--pink-dark);
+            box-shadow: 0 0 0 3px rgba(173, 115, 125, 0.12);
+        }
+
+        .form-group textarea {
+            min-height: 125px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 20px;
+            background: var(--pink-dark);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .submit-button:hover {
+            background: var(--pink-deep);
+            transform: translateY(-2px);
+        }
+
+        .form-help {
+            margin-top: 12px;
+            font-size: 11px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        /* OPENING HOURS */
+        .hours-box {
+            max-width: 850px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            padding: 28px 35px;
+            border-radius: 22px;
+            background: var(--white);
+            border: 1px solid #eee4dc;
+        }
+
+        .hours-box h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--pink-deep);
+            font-size: 23px;
+        }
+
+        .hours-box p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .hours-time {
+            padding: 12px 20px;
+            border-radius: 30px;
+            background: var(--green);
+            color: var(--green-dark);
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 55px 7% 20px;
+            background: #65745e;
+            color: #fffaf4;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .footer-logo span {
+            color: #f4dadd;
+        }
+
+        .footer p {
+            font-size: 13px;
+            line-height: 1.9;
+            color: #f0eee5;
+        }
+
+        .footer h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 19px;
+            margin-bottom: 16px;
+            color: #fff1e9;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 9px;
+            font-size: 13px;
+        }
+
+        .footer a:hover {
+            color: #f5d8dc;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 35px auto 0;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.22);
+            text-align: center;
+            font-size: 12px;
+            color: #f0eee5;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatFlower {
+            0%, 100% {
+                transform: translateY(0) rotate(-7deg);
+            }
+            50% {
+                transform: translateY(-18px) rotate(8deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 0.9;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 950px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .message-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-about {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 15px 5%;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .contact-hero {
+                min-height: 330px;
+                padding: 65px 6%;
+            }
+
+            .flower-one {
+                left: 2%;
+            }
+
+            .flower-two {
+                right: 2%;
+            }
+
+            .flower-three {
+                right: 10%;
+            }
+
+            .section {
+                padding: 55px 6%;
+            }
+
+            .contact-grid {
+                gap: 12px;
+            }
+
+            .contact-card {
+                padding: 22px 12px;
+            }
+
+            .contact-card h3 {
+                font-size: 17px;
+            }
+
+            .contact-card p,
+            .contact-card a {
+                font-size: 12px;
+            }
+
+            .contact-form {
+                padding: 23px 18px;
+            }
+
+            .hours-box {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 25px;
+            }
+
+            .hours-time {
+                white-space: normal;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-about {
+                grid-column: auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="index.html" class="logo">MOLIE <span>BLOOM.</span></a>
+
+        <nav class="nav-links" aria-label="Navigasi utama">
+            <a href="index.html">Home</a>
+            <a href="produk.html">Produk</a>
+            <a href="tentang.html">Tentang Kami</a>
+            <a href="kontak.html" class="active">Kontak</a>
+        </nav>
+
+        <a href="keranjang.html" class="cart-link">
+            🛒 Keranjang (<span id="cartCount">0</span>)
+        </a>
+    </header>
+
+    <main>
+        <!-- JUMBOTRON -->
+        <section class="contact-hero">
+            <div class="hero-circle circle-one"></div>
+            <div class="hero-circle circle-two"></div>
+            <span class="hero-flower flower-one" aria-hidden="true">🌸</span>
+            <span class="hero-flower flower-two" aria-hidden="true">🌷</span>
+            <span class="hero-flower flower-three" aria-hidden="true">✿</span>
+
+            <div class="hero-content">
+                <span class="eyebrow">We'd Love to Hear From You</span>
+                <h1>Mari Terhubung dengan <span>MOLIE BLOOM</span></h1>
+                <p>
+                    Punya pertanyaan atau ingin memesan buket spesial?
+                    Kami siap membantu mewujudkan hadiah bunga yang
+                    indah untuk setiap momen berharga.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTACT INFORMATION -->
+        <section class="section">
+            <div class="section-heading">
+                <span class="small-title">Get in Touch</span>
+                <h2>Kami Siap Menyapamu</h2>
+                <p>
+                    Hubungi kami melalui pilihan kontak di bawah ini.
+                    Pilih cara yang paling nyaman untukmu.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <article class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p>Konsultasi dan pemesanan buket dengan mudah.</p>
+                    <!-- Ganti nomor contoh dengan nomor WhatsApp toko -->
+                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">
+                        Chat Sekarang ↗
+                    </a>
+                </article>
+
+                <article class="contact-card">
+                    <div class="contact-icon">📷</div>
+                    <h3>Instagram</h3>
+                    <p>Lihat koleksi buket dan inspirasi hadiah kami.</p>
+                    <!-- Ganti username contoh dengan akun Instagram toko -->
+                    <a href="https://instagram.com/molie.bloom" target="_blank" rel="noopener">
+                        @molie.bloom ↗
+                    </a>
+                </article>
+
+                <article class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>Kirim pertanyaan atau permintaan informasi.</p>
+                    <!-- Ganti email contoh dengan email toko -->
+                    <a href="mailto:moliebloom@example.com">
+                        Kirim Email ↗
+                    </a>
+                </article>
+
+                <article class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Alamat</h3>
+                    <p>Jl. Gardenia No. 12, Pekalongan, Jawa Tengah.</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pekalongan+Jawa+Tengah"
+                       target="_blank" rel="noopener">
+                        Lihat Peta ↗
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- MESSAGE FORM -->
+        <section class="section message-section">
+            <div class="message-layout">
+                <div class="message-info">
+                    <span class="eyebrow">Say Hello</span>
+                    <h2>Ada yang Bisa Kami Bantu?</h2>
+                    <p>
+                        Ceritakan buket yang kamu inginkan, mulai dari
+                        warna favorit, jenis bunga, hingga acara spesialmu.
+                        Kami akan membantumu memilih rangkaian yang sesuai.
+                    </p>
+
+                    <div class="message-note">
+                        🌷 <strong>Tips pemesanan</strong><br>
+                        Sertakan jenis buket, pilihan warna, tanggal
+                        pemesanan, dan pesan kartu jika diperlukan.
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input
+                            type="text"
+                            id="nama"
+                            name="nama"
+                            placeholder="Masukkan nama kamu"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="nama@email.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subjek">Subjek Pesan</label>
+                        <input
+                            type="text"
+                            id="subjek"
+                            name="subjek"
+                            placeholder="Contoh: Pemesanan buket wisuda"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pesan">Pesan</label>
+                        <textarea
+                            id="pesan"
+                            name="pesan"
+                            placeholder="Ceritakan kebutuhan buketmu di sini..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        Kirim Pesan via WhatsApp ✿
+                    </button>
+
+                    <p class="form-help">
+                        Pesan akan disiapkan untuk dikirim melalui WhatsApp.
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <!-- OPENING HOURS -->
+        <section class="section">
+            <div class="section-heading">
+                <span class="small-title">Visit & Order</span>
+                <h2>Waktu Pelayanan</h2>
+                <p>
+                    Hubungi kami pada jam pelayanan untuk mendapatkan
+                    informasi mengenai pesanan dan ketersediaan buket.
+                </p>
+            </div>
+
+            <div class="hours-box">
+                <div>
+                    <h3>🌿 MOLIE BLOOM Flower Shop</h3>
+                    <p>Senin–Sabtu</p>
+                    <p>Minggu dan hari libur: konfirmasi melalui WhatsApp.</p>
+                </div>
+
+                <div class="hours-time">
+                    08.00–20.00 WIB
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">MOLIE <span>BLOOM.</span></div>
+                <p>
+                    Flowers for Every Beautiful Moment.<br>
+                    Menghadirkan rangkaian bunga yang indah untuk
+                    setiap cerita dan momen berharga.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="produk.html">Produk</a></li>
+                    <li><a href="tentang.html">Tentang Kami</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="keranjang.html">Keranjang</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Informasi Toko</h3>
+                <ul class="footer-links">
+                    <li>📍 Jl. Gardenia No. 12, Pekalongan</li>
+                    <li>
+                        💬 <a href="https://wa.me/6281234567890"
+                              target="_blank" rel="noopener">
+                            WhatsApp toko
+                        </a>
+                    </li>
+                    <li>
+                        📷 <a href="https://instagram.com/molie.bloom"
+                              target="_blank" rel="noopener">
+                            @molie.bloom
+                        </a>
+                    </li>
+                    <li>
+                        ✉️ <a href="mailto:moliebloom@example.com">
+                            Email MOLIE BLOOM
+                        </a>
+                    </li>
+                    <li>🕒 Senin–Sabtu, 08.00–20.00 WIB</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© <span id="currentYear"></span> MOLIE BLOOM. Made with love & flowers 🌷</p>
+        </div>
+    </footer>
+
+    <script>
+        // Memperbarui jumlah barang di keranjang
+        function updateCartCount() {
+            const cartCount = document.getElementById("cartCount");
+
+            try {
+                const cart = JSON.parse(
+                    localStorage.getItem("molieBloomCart")
+                ) || [];
+
+                const totalItems = Array.isArray(cart)
+                    ? cart.reduce((total, item) => {
+                        return total + (Number(item.quantity) || 0);
+                    }, 0)
+                    : Object.values(cart).reduce((total, item) => {
+                        return total + (Number(item.quantity) || 0);
+                    }, 0);
+
+                cartCount.textContent = totalItems;
+            } catch (error) {
+                cartCount.textContent = "0";
+            }
+        }
+
+        // Membuka WhatsApp dengan isi pesan dari formulir
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subjek = document.getElementById("subjek").value.trim();
+            const pesan = document.getElementById("pesan").value.trim();
+
+            if (!nama || !email || !subjek || !pesan) {
+                alert("Silakan lengkapi semua kolom terlebih dahulu.");
+                return;
+            }
+
+            // Ganti dengan nomor WhatsApp toko, gunakan kode negara tanpa tanda +
+            const nomorWhatsApp = "6281234567890";
+
+            const isiPesan =
+                "Halo MOLIE BLOOM! 🌷\n\n" +
+                "Nama: " + nama + "\n" +
+                "Email: " + email + "\n" +
+                "Subjek: " + subjek + "\n" +
+                "Pesan: " + pesan;
+
+            const urlWhatsApp =
+                "https://wa.me/" + nomorWhatsApp +
+                "?text=" + encodeURIComponent(isiPesan);
+
+            window.open(urlWhatsApp, "_blank", "noopener");
+        });
+
+        // Tahun footer otomatis
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        updateCartCount();
+    </script>
+
+</body>
+</html>

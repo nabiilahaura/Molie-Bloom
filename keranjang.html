@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Keranjang Belanja | MOLIE BLOOM</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pink: #d98fa3;
+            --pink-light: #f9e9ed;
+            --pink-dark: #b96f86;
+            --sage: #829780;
+            --sage-light: #e8eee5;
+            --cream: #fffaf5;
+            --text: #51443f;
+            --muted: #8d817b;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: rgba(255, 250, 245, 0.97);
+            border-bottom: 1px solid #f0e4df;
+            padding: 18px 7%;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--pink-dark);
+        }
+
+        .navbar nav a {
+            transition: color 0.2s ease;
+        }
+
+        .navbar nav a:hover,
+        .navbar nav a.active {
+            color: var(--pink-dark);
+        }
+
+        .cart-hero {
+            padding: 60px 20px 45px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 12% 25%, #f4dce2 0, transparent 24%),
+                radial-gradient(circle at 88% 70%, #e2eadf 0, transparent 25%),
+                var(--pink-light);
+        }
+
+        .cart-eyebrow {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.75);
+            color: var(--pink-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cart-hero h1 {
+            margin: 18px 0 12px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(35px, 5vw, 53px);
+            font-weight: 600;
+        }
+
+        .cart-hero p {
+            max-width: 500px;
+            margin: 0 auto;
+            color: #786a65;
+            line-height: 1.8;
+        }
+
+        .cart-main {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+            padding: 45px 0 80px;
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        .cart-panel,
+        .summary-panel {
+            padding: 28px;
+            background: var(--white);
+            border: 1px solid #f0e5e0;
+            border-radius: 22px;
+            box-shadow: 0 10px 35px rgba(103, 74, 65, 0.06);
+        }
+
+        .panel-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .panel-heading h2,
+        .summary-panel h2 {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+        }
+
+        .small-note {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        #cartItems {
+            display: grid;
+            gap: 16px;
+        }
+
+        /* Tampilan item mengikuti HTML yang dibuat JavaScript */
+        #cartItems .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 17px 0;
+            border-bottom: 1px solid #f1e8e3;
+        }
+
+        #cartItems .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        #cartItems img {
+            width: 94px;
+            height: 110px;
+            flex-shrink: 0;
+            object-fit: cover;
+            border-radius: 14px;
+            background: var(--pink-light);
+        }
+
+        #cartItems h3,
+        #cartItems h4 {
+            margin: 0 0 7px;
+            font-family: "Playfair Display", serif;
+            font-size: 18px;
+        }
+
+        #cartItems p {
+            margin: 5px 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        #cartItems button {
+            min-width: 32px;
+            min-height: 32px;
+            margin: 4px 3px 0 0;
+            padding: 5px 10px;
+            border: 1px solid #eadbd5;
+            border-radius: 9px;
+            background: var(--cream);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        #cartItems button:hover {
+            background: var(--pink-light);
+        }
+
+        .cart-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 19px;
+            border: none;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-pink {
+            background: var(--pink);
+            color: white;
+        }
+
+        .btn-pink:hover {
+            background: var(--pink-dark);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--sage);
+            border: 1px solid #cbd7c7;
+        }
+
+        .btn-danger {
+            background: #fff2f2;
+            color: #ad6262;
+        }
+
+        .summary-panel {
+            position: sticky;
+            top: 22px;
+        }
+
+        .summary-intro {
+            margin: 10px 0 23px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin: 17px 0;
+            font-size: 14px;
+        }
+
+        .summary-row span:first-child {
+            color: var(--muted);
+        }
+
+        .summary-total {
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px dashed #e5d5ce;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        #cartTotal {
+            color: var(--pink-dark);
+            font-size: 22px;
+        }
+
+        .checkout-button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 16px;
+            font-size: 15px;
+        }
+
+        .secure-note {
+            margin: 15px 0 0;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .continue-link {
+            display: block;
+            margin-top: 22px;
+            color: var(--sage);
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .continue-link:hover {
+            color: var(--pink-dark);
+        }
+
+        .cart-decoration {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 15px;
+            background: var(--sage-light);
+            color: #586d56;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer {
+            padding: 28px 20px;
+            background: #e8eee5;
+            color: #62735e;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-panel {
+                position: static;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .navbar {
+                padding: 16px 5%;
+            }
+
+            .cart-main {
+                width: 92%;
+                padding-top: 28px;
+            }
+
+            .cart-panel,
+            .summary-panel {
+                padding: 20px;
+                border-radius: 17px;
+            }
+
+            #cartItems .cart-item {
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            #cartItems img {
+                width: 76px;
+                height: 94px;
+            }
+
+            .cart-actions .btn {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            MOLIE <span>BLOOM.</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="produk.html">Produk</a>
+            <a href="tentang.html">Tentang Kami</a>
+            <a href="kontak.html">Kontak</a>
+            <a href="keranjang.html" class="active">
+                🛒 Keranjang (<span id="cartCount">0</span>)
+            </a>
+        </nav>
+    </header>
+
+    <section class="cart-hero">
+        <span class="cart-eyebrow">A Little Box of Happiness</span>
+        <h1>Keranjang Belanja</h1>
+        <p>
+            Setiap buket punya cerita. Periksa pilihan bungamu
+            dan siapkan hadiah manis untuk seseorang yang istimewa.
+        </p>
+    </section>
+
+    <main class="cart-main">
+        <div class="cart-layout">
+
+            <section class="cart-panel">
+                <div class="panel-heading">
+                    <h2>Pilihan Bungamu ♡</h2>
+                    <span class="small-note">Your lovely picks</span>
+                </div>
+
+                <div id="cartItems">
+                    <!-- Isi keranjang ditampilkan oleh script.js -->
+                </div>
+
+                <div class="cart-actions">
+                    <a href="produk.html" class="btn btn-outline">
+                        ← Lanjut Belanja
+                    </a>
+
+                    <button
+                        type="button"
+                        id="clearCartButton"
+                        class="btn btn-danger"
+                    >
+                        Kosongkan Keranjang
+                    </button>
+                </div>
+            </section>
+
+            <aside class="summary-panel">
+                <h2>Ringkasan Pesanan</h2>
+                <p class="summary-intro">
+                    Sedikit lagi, buket cantik pilihanmu siap dipesan.
+                </p>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartTotal">Rp0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Pengiriman</span>
+                    <span>Dikonfirmasi saat pemesanan</span>
+                </div>
+
+                <div class="summary-row summary-total">
+                    <span>Total sementara</span>
+                    <span id="cartTotalCopy">Rp0</span>
+                </div>
+
+                <button
+                    type="button"
+                    id="checkoutButton"
+                    class="btn btn-pink checkout-button"
+                >
+                    Pesan Sekarang →
+                </button>
+
+                <p class="secure-note">
+                    ♡ Pastikan pilihan buket dan jumlahnya sudah sesuai
+                    sebelum melanjutkan pemesanan.
+                </p>
+
+                <div class="cart-decoration">
+                    🌿 <strong>Dibuat dengan cinta</strong><br>
+                    Setiap rangkaian MOLIE BLOOM dirancang untuk
+                    menemani momen spesialmu.
+                </div>
+
+                <a href="produk.html" class="continue-link">
+                    Temukan buket lainnya →
+                </a>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>
+            © <span id="currentYear"></span> MOLIE BLOOM.
+            Made with love & flowers ♡
+        </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <script>
+        // Samakan teks total kedua dengan total dari keranjang.
+        function syncCartTotalCopy() {
+            const total = document.getElementById("cartTotal");
+            const copy = document.getElementById("cartTotalCopy");
+
+            if (total && copy) {
+                copy.textContent = total.textContent;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            syncCartTotalCopy();
+
+            const total = document.getElementById("cartTotal");
+
+            if (total) {
+                new MutationObserver(syncCartTotalCopy).observe(total, {
+                    childList: true,
+                    subtree: true,
+                    characterData: true
+                });
+            }
+        });
+    </script>
+
+<!-- Popup Konfirmasi Kosongkan Keranjang -->
+<div id="clearCartModal" class="custom-modal">
+    <div class="modal-card">
+        <div class="modal-flower">🌷</div>
+
+        <span class="modal-label">MOLIE BLOOM</span>
+
+        <h2>Kosongkan Keranjang?</h2>
+
+        <p>
+            Apakah kamu yakin ingin menghapus semua bunga
+            pilihanmu dari keranjang?
+        </p>
+
+        <div class="modal-buttons">
+            <button type="button" id="cancelClearCart" class="modal-cancel">
+                Tidak, Kembali
+            </button>
+
+            <button type="button" id="confirmClearCart" class="modal-confirm">
+                Ya, Kosongkan
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(69, 53, 49, 0.42);
+        backdrop-filter: blur(5px);
+    }
+
+    .custom-modal.show {
+        display: flex;
+        animation: modalFadeIn 0.25s ease;
+    }
+
+    .modal-card {
+        width: 100%;
+        max-width: 430px;
+        padding: 36px 30px 30px;
+        border: 1px solid #f0dce0;
+        border-radius: 25px;
+        background: #fffaf5;
+        box-shadow: 0 20px 60px rgba(65, 43, 38, 0.18);
+        text-align: center;
+        animation: modalSlideUp 0.3s ease;
+    }
+
+    .modal-flower {
+        display: flex;
+        width: 76px;
+        height: 76px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 18px;
+        border-radius: 50%;
+        background: #f8e7eb;
+        font-size: 36px;
+    }
+
+    .modal-label {
+        color: #b96f86;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+
+    .modal-card h2 {
+        margin: 13px 0 12px;
+        color: #51443f;
+        font-family: "Playfair Display", serif;
+        font-size: 29px;
+    }
+
+    .modal-card p {
+        margin: 0 auto 27px;
+        color: #8d817b;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .modal-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .modal-buttons button {
+        flex: 1;
+        padding: 13px 12px;
+        border-radius: 12px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    .modal-cancel {
+        border: 1px solid #cbd7c7;
+        background: #e8eee5;
+        color: #586d56;
+    }
+
+    .modal-confirm {
+        border: 1px solid #c77e94;
+        background: #c77e94;
+        color: white;
+    }
+
+    .modal-buttons button:hover {
+        transform: translateY(-2px);
+        filter: brightness(0.97);
+    }
+
+    @keyframes modalFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes modalSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 420px) {
+        .modal-card {
+            padding: 28px 20px 22px;
+        }
+
+        .modal-buttons {
+            flex-direction: column;
+        }
+    }
+</style>
+
+</body>
+</html>

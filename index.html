@@ -1,0 +1,1877 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MOLIE BLOOM | A Little Bloom of Happiness</title>
+    <meta name="description" content="Temukan buket bunga cantik dan spesial dari MOLIE BLOOM untuk setiap momen berharga.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================
+           WARNA DAN PENGATURAN
+        ========================== */
+        :root {
+            --cream: #fffaf2;
+            --cream-dark: #f4eadc;
+            --pink: #e9bfc2;
+            --pink-light: #f9e8e6;
+            --pink-dark: #ae737c;
+            --green: #a9b89b;
+            --green-dark: #60765b;
+            --green-light: #e8eee2;
+            --brown: #5d5047;
+            --muted: #8b8177;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--brown);
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(1120px, 88%);
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--pink-dark);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-top: 12px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            max-width: 530px;
+            margin: 15px auto 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* ==========================
+           NAVBAR
+        ========================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            padding: 17px 6%;
+            background: rgba(255, 250, 242, 0.94);
+            border-bottom: 1px solid #e8e2d6;
+            backdrop-filter: blur(14px);
+        }
+
+        .logo {
+            flex-shrink: 0;
+            color: var(--green-dark);
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--pink-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--brown);
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--pink-dark);
+        }
+
+        .nav-links .cart-link {
+            padding: 11px 17px;
+            color: white;
+            background: var(--green-dark);
+            border-radius: 30px;
+            transition: 0.3s ease;
+        }
+
+        .nav-links .cart-link:hover {
+            color: white;
+            background: var(--pink-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================
+           JUMBOTRON
+        ========================== */
+        .hero {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 0.95fr;
+            align-items: center;
+            gap: 45px;
+            min-height: 650px;
+            padding: 75px 8%;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 78% 25%, #e6ebdb 0%, transparent 30%),
+                radial-gradient(ellipse at 12% 90%, #f4dedd 0%, transparent 35%),
+                var(--cream);
+        }
+
+        .hero::before {
+            position: absolute;
+            top: -130px;
+            right: -120px;
+            width: 420px;
+            height: 420px;
+            border: 1px solid #a9b89b65;
+            border-radius: 50%;
+            content: "";
+            animation: slowSpin 32s linear infinite;
+        }
+
+        .hero::after {
+            position: absolute;
+            bottom: -180px;
+            left: 20%;
+            width: 350px;
+            height: 350px;
+            background: #f1d9d6;
+            border-radius: 50%;
+            opacity: 0.35;
+            filter: blur(75px);
+            content: "";
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            animation: textReveal 1s ease both;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 16px;
+            color: var(--green-dark);
+            background: #ffffffc9;
+            border: 1px solid #dce4d4;
+            border-radius: 40px;
+            font-size: 10px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge span {
+            color: var(--pink-dark);
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            margin: 25px 0 20px;
+            color: var(--brown);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(46px, 5.7vw, 76px);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -1.8px;
+        }
+
+        .hero h1 em {
+            display: block;
+            color: var(--pink-dark);
+            font-weight: 400;
+        }
+
+        .hero-text {
+            max-width: 445px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 14px 23px;
+            border: 1px solid transparent;
+            border-radius: 40px;
+            font-size: 12px;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button-primary {
+            color: white;
+            background: var(--green-dark);
+        }
+
+        .button-primary:hover {
+            background: var(--pink-dark);
+            box-shadow: 0 9px 24px #ae737c2b;
+            transform: translateY(-3px);
+        }
+
+        .button-outline {
+            color: var(--green-dark);
+            border-color: #b8c4ad;
+            background: transparent;
+        }
+
+        .button-outline:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-caption {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 34px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .caption-line {
+            width: 35px;
+            height: 1px;
+            background: var(--pink-dark);
+        }
+
+        /* Visual buket */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 470px;
+            animation: imageReveal 1.2s ease both;
+        }
+
+        .orbit {
+            position: absolute;
+            width: 390px;
+            height: 390px;
+            border: 1px solid #b3c1a56e;
+            border-radius: 50%;
+            animation: slowSpin 30s linear infinite;
+        }
+
+        .orbit::before {
+            position: absolute;
+            top: 45px;
+            left: 40px;
+            width: 12px;
+            height: 12px;
+            background: var(--pink);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .orbit-two {
+            width: 450px;
+            height: 450px;
+            border: 1px dashed #b3c1a54f;
+            animation-direction: reverse;
+            animation-duration: 45s;
+        }
+
+        .hero-photo {
+            position: relative;
+            z-index: 2;
+            width: min(100%, 350px);
+            height: 440px;
+            overflow: hidden;
+            background: var(--pink-light);
+            border: 8px solid #ffffffb8;
+            border-radius: 48% 48% 18px 18px;
+            box-shadow: 0 24px 65px #67584b20;
+            animation: gentleFloat 5s ease-in-out infinite;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-photo::after {
+            position: absolute;
+            inset: 0;
+            border: 1px solid #ffffff80;
+            border-radius: inherit;
+            content: "";
+            pointer-events: none;
+        }
+
+        .decor-flower {
+            position: absolute;
+            z-index: 4;
+            color: var(--pink-dark);
+            font-size: 35px;
+            pointer-events: none;
+            animation: petalFloat 4s ease-in-out infinite;
+        }
+
+        .decor-one {
+            top: 25px;
+            left: 5px;
+        }
+
+        .decor-two {
+            right: 5px;
+            bottom: 60px;
+            color: var(--green-dark);
+            animation-delay: 1s;
+        }
+
+        .decor-three {
+            top: 30px;
+            right: 30px;
+            font-size: 22px;
+            animation-delay: 1.5s;
+        }
+
+        .decor-four {
+            bottom: 20px;
+            left: 35px;
+            font-size: 23px;
+            animation-delay: 0.7s;
+        }
+
+        .hero-note-card {
+            position: absolute;
+            right: -12px;
+            bottom: 45px;
+            z-index: 6;
+            padding: 16px 20px;
+            background: #fffdf8f2;
+            border: 1px solid #eee1d8;
+            border-radius: 13px;
+            box-shadow: 0 12px 35px #5d50471a;
+            animation: cardFloat 4s ease-in-out infinite;
+        }
+
+        .hero-note-card strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--green-dark);
+            font-family: "Playfair Display", serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .hero-note-card small {
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .hero-sticker {
+            position: absolute;
+            top: 38px;
+            left: -12px;
+            z-index: 6;
+            display: grid;
+            width: 83px;
+            height: 83px;
+            place-content: center;
+            color: var(--green-dark);
+            background: var(--green-light);
+            border: 1px solid #cbd7c2;
+            border-radius: 50%;
+            text-align: center;
+            transform: rotate(-10deg);
+            animation: stickerSway 5s ease-in-out infinite;
+        }
+
+        .hero-sticker span {
+            font-family: "Playfair Display", serif;
+            font-size: 19px;
+        }
+
+        .hero-sticker small {
+            margin-top: 3px;
+            font-size: 8px;
+            letter-spacing: 1px;
+        }
+
+        /* Animasi */
+        @keyframes textReveal {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes imageReveal {
+            from {
+                opacity: 0;
+                transform: translateX(25px) scale(.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+        }
+
+        @keyframes petalFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-8deg);
+            }
+            50% {
+                transform: translateY(-18px) rotate(12deg);
+            }
+        }
+
+        @keyframes cardFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes slowSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: .5;
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes stickerSway {
+            0%, 100% {
+                transform: rotate(-10deg) translateY(0);
+            }
+            50% {
+                transform: rotate(-4deg) translateY(-6px);
+            }
+        }
+
+        /* ==========================
+           RUNNING TEXT
+        ========================== */
+        .flower-marquee {
+            overflow: hidden;
+            padding: 17px 0;
+            color: var(--green-dark);
+            background: var(--green-light);
+            border-top: 1px solid #dbe3d4;
+            border-bottom: 1px solid #dbe3d4;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 28s linear infinite;
+        }
+
+        .marquee-group {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            gap: 28px;
+            padding-right: 28px;
+        }
+
+        .marquee-group span {
+            font-family: "Playfair Display", serif;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .marquee-group b {
+            color: var(--pink-dark);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        @keyframes marquee {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ==========================
+           KATEGORI
+        ========================== */
+        .categories {
+            padding: 90px 0 80px;
+            text-align: center;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 42px;
+        }
+
+        .category-card {
+            padding: 27px 15px;
+            background: #fffdf8;
+            border: 1px solid #eee6dc;
+            border-radius: 16px;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .category-card:nth-child(even) {
+            background: var(--pink-light);
+        }
+
+        .category-card:hover {
+            box-shadow: 0 14px 30px #5d504711;
+            transform: translateY(-7px);
+        }
+
+        .category-icon {
+            display: grid;
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 16px;
+            place-items: center;
+            background: var(--green-light);
+            border-radius: 50%;
+            font-size: 28px;
+            transition: transform .4s ease;
+        }
+
+        .category-card:nth-child(even) .category-icon {
+            background: white;
+        }
+
+        .category-card:hover .category-icon {
+            transform: rotate(-8deg) scale(1.08);
+        }
+
+        .category-card h3 {
+            margin-bottom: 8px;
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .category-card p {
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        /* ==========================
+           PRODUK UNGGULAN
+        ========================== */
+        .products {
+            padding: 85px 0;
+            background: #f7f1e8;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            margin-top: 42px;
+            text-align: left;
+        }
+
+        .product-card {
+            overflow: hidden;
+            background: var(--cream);
+            border: 1px solid #ece2d7;
+            border-radius: 16px;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 18px 35px #5d504716;
+            transform: translateY(-7px);
+        }
+
+        .product-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            background: var(--pink-light);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            padding: 7px 12px;
+            color: var(--green-dark);
+            background: #fffaf2eF;
+            border-radius: 25px;
+            font-size: 9px;
+            letter-spacing: .5px;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 9px;
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+            font-weight: 400;
+        }
+
+        .product-info p {
+            min-height: 42px;
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .product-price {
+            color: var(--pink-dark);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .add-button {
+            padding: 11px 13px;
+            color: white;
+            background: var(--green-dark);
+            border: none;
+            border-radius: 25px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        .add-button:hover {
+            background: var(--pink-dark);
+            transform: translateY(-2px);
+        }
+
+        .view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 38px;
+            padding: 14px 23px;
+            color: var(--green-dark);
+            border: 1px solid var(--green-dark);
+            border-radius: 30px;
+            font-size: 12px;
+            transition: .3s ease;
+        }
+
+        .view-all:hover {
+            color: white;
+            background: var(--green-dark);
+        }
+
+        /* ==========================
+           CERITA MOLIE BLOOM
+        ========================== */
+        .story {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            align-items: center;
+            gap: 75px;
+            padding: 100px 0;
+        }
+
+        .story-visual {
+            position: relative;
+            padding: 0 22px 22px 0;
+        }
+
+        .story-photo {
+            height: 440px;
+            overflow: hidden;
+            background: var(--green-light);
+            border-radius: 48% 48% 14px 14px;
+        }
+
+        .story-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-decoration {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: grid;
+            width: 115px;
+            height: 115px;
+            place-content: center;
+            color: var(--green-dark);
+            background: var(--green-light);
+            border: 6px solid var(--cream);
+            border-radius: 50%;
+            text-align: center;
+            transform: rotate(8deg);
+        }
+
+        .story-decoration span {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+        }
+
+        .story-decoration small {
+            margin-top: 5px;
+            font-size: 9px;
+        }
+
+        .story-content .section-title {
+            margin-bottom: 22px;
+        }
+
+        .story-content p {
+            margin-bottom: 15px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .story-content .button {
+            margin-top: 12px;
+        }
+
+        /* ==========================
+           BANNER CTA
+        ========================== */
+        .cta {
+            position: relative;
+            margin-bottom: 90px;
+            padding: 70px 25px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 10% 10%, #ffffff9c, transparent 25%),
+                var(--pink-light);
+            border: 1px solid #f0d9d7;
+            border-radius: 22px;
+            text-align: center;
+        }
+
+        .cta::before,
+        .cta::after {
+            position: absolute;
+            color: #ae737c2b;
+            font-size: 100px;
+            content: "✿";
+            animation: petalFloat 6s ease-in-out infinite;
+        }
+
+        .cta::before {
+            top: 3px;
+            left: 5%;
+        }
+
+        .cta::after {
+            right: 5%;
+            bottom: 0;
+            animation-delay: 1.5s;
+        }
+
+        .cta h2 {
+            position: relative;
+            z-index: 2;
+            margin: 12px 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(30px, 4vw, 45px);
+            font-weight: 400;
+        }
+
+        .cta p {
+            position: relative;
+            z-index: 2;
+            max-width: 510px;
+            margin: 0 auto 25px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .cta .button {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ==========================
+           FOOTER LENGKAP
+        ========================== */
+        .footer {
+            color: #f8f1e8;
+            background: #425544;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1.35fr .8fr 1fr 1.1fr;
+            gap: 38px;
+            padding: 65px 0 45px;
+        }
+
+        .footer-brand .logo {
+            display: inline-block;
+            margin-bottom: 17px;
+            color: #fffaf2;
+        }
+
+        .footer-brand .logo span {
+            color: #edc4c5;
+        }
+
+        .footer-brand p {
+            max-width: 290px;
+            color: #e0e8dc;
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        .footer-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 20px;
+        }
+
+        .social-circle {
+            display: grid;
+            width: 35px;
+            height: 35px;
+            place-items: center;
+            color: white;
+            background: #ffffff15;
+            border: 1px solid #ffffff30;
+            border-radius: 50%;
+            font-size: 13px;
+            transition: .3s ease;
+        }
+
+        .social-circle:hover {
+            color: var(--green-dark);
+            background: var(--cream);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: #f1cece;
+            font-family: "Playfair Display", serif;
+            font-size: 19px;
+            font-weight: 400;
+        }
+
+        .footer-column a {
+            display: block;
+            width: fit-content;
+            margin-bottom: 12px;
+            color: #e0e8dc;
+            font-size: 11px;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+            transition: color .3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #f1cece;
+        }
+
+        .contact-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #e0e8dc;
+            font-size: 11px;
+            line-height: 1.9;
+        }
+
+        .contact-icon {
+            flex-shrink: 0;
+            color: #f1cece;
+            font-size: 15px;
+        }
+
+        .contact-line a {
+            display: inline;
+            margin: 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 20px 0;
+            border-top: 1px solid #ffffff25;
+        }
+
+        .footer-bottom p {
+            color: #dbe4d7;
+            font-size: 10px;
+            line-height: 1.8;
+        }
+
+        .footer-bottom span {
+            color: #f1cece;
+        }
+
+        /* ==========================
+           RESPONSIVE
+        ========================== */
+        @media (max-width: 1000px) {
+            .navbar {
+                padding-right: 4%;
+                padding-left: 4%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero {
+                gap: 25px;
+                padding-right: 6%;
+                padding-left: 6%;
+            }
+
+            .hero-photo {
+                width: 300px;
+                height: 400px;
+            }
+
+            .orbit {
+                width: 340px;
+                height: 340px;
+            }
+
+            .orbit-two {
+                width: 390px;
+                height: 390px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1.2fr 1fr;
+            }
+
+            .story {
+                gap: 45px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                width: 88%;
+            }
+
+            .navbar {
+                position: relative;
+                flex-direction: column;
+                gap: 15px;
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 13px 16px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+            .nav-links .cart-link {
+                padding: 9px 12px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 55px 7% 60px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-badge {
+                font-size: 9px;
+            }
+
+            .hero h1 {
+                margin-top: 22px;
+                font-size: clamp(45px, 12vw, 63px);
+                letter-spacing: -1px;
+            }
+
+            .hero-text {
+                margin: auto;
+                font-size: 12px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-caption {
+                justify-content: center;
+                margin-top: 25px;
+            }
+
+            .hero-visual {
+                min-height: 390px;
+                margin-top: 15px;
+            }
+
+            .hero-photo {
+                width: 260px;
+                height: 340px;
+            }
+
+            .orbit {
+                width: 290px;
+                height: 290px;
+            }
+
+            .orbit-two {
+                width: 330px;
+                height: 330px;
+            }
+
+            .hero-sticker {
+                top: 20px;
+                left: 0;
+                width: 70px;
+                height: 70px;
+            }
+
+            .hero-sticker span {
+                font-size: 16px;
+            }
+
+            .hero-note-card {
+                right: 0;
+                bottom: 20px;
+                padding: 12px 14px;
+            }
+
+            .hero-note-card strong {
+                font-size: 15px;
+            }
+
+            .decor-one {
+                left: 0;
+            }
+
+            .decor-two {
+                right: 0;
+            }
+
+            .categories,
+            .products {
+                padding: 65px 0;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 13px;
+                margin-top: 30px;
+            }
+
+            .category-card {
+                padding: 23px 10px;
+            }
+
+            .category-card h3 {
+                font-size: 18px;
+            }
+
+            .category-card p {
+                font-size: 10px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+                margin-top: 30px;
+            }
+
+            .product-image {
+                height: 320px;
+            }
+
+            .story {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding: 70px 0;
+            }
+
+            .story-visual {
+                max-width: 430px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .story-photo {
+                height: 380px;
+            }
+
+            .story-content {
+                text-align: center;
+            }
+
+            .story-content p {
+                font-size: 12px;
+            }
+
+            .cta {
+                margin-bottom: 60px;
+                padding: 55px 20px;
+            }
+
+            .cta::before,
+            .cta::after {
+                font-size: 55px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px 20px;
+                padding-top: 48px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-brand p {
+                max-width: 360px;
+            }
+
+            .footer-column h3 {
+                font-size: 17px;
+            }
+
+            .footer-bottom {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 370px) {
+            .nav-links {
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-photo {
+                width: 225px;
+                height: 300px;
+            }
+
+            .hero-visual {
+                min-height: 345px;
+            }
+
+            .orbit {
+                width: 260px;
+                height: 260px;
+            }
+
+            .orbit-two {
+                width: 290px;
+                height: 290px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+        }
+
+        /* Hormati pengaturan pengurangan animasi */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================
+         NAVBAR
+    =========================== -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            MOLIE <span>BLOOM.</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Navigasi utama">
+            <a href="index.html" class="active">Home</a>
+            <a href="produk.html">Produk</a>
+            <a href="tentang.html">Tentang Kami</a>
+            <a href="kontak.html">Kontak</a>
+
+            <a href="keranjang.html" class="cart-link">
+                ♡ Keranjang (<span id="cartCount">0</span>)
+            </a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ==========================
+             JUMBOTRON
+        =========================== -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span>✿</span>
+                    A Little Bloom of Happiness
+                </div>
+
+                <h1>
+                    Let Flowers
+                    <em>Speak for You.</em>
+                </h1>
+
+                <p class="hero-text">
+                    Untuk rasa yang sulit diungkapkan dengan kata.
+                    Biarkan bunga menyampaikan cinta, perhatian,
+                    dan kebahagiaan kepada orang-orang tersayang.
+                    Temukan rangkaian istimewa dari MOLIE BLOOM.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="produk.html" class="button button-primary">
+                        Temukan Buketmu <span>↗</span>
+                    </a>
+
+                    <a href="tentang.html" class="button button-outline">
+                        Cerita Kami
+                    </a>
+                </div>
+
+                <div class="hero-caption">
+                    <span class="caption-line"></span>
+                    Little flowers, meaningful moments.
+                </div>
+
+            </div>
+
+            <div class="hero-visual">
+
+                <div class="orbit"></div>
+                <div class="orbit orbit-two"></div>
+
+                <span class="decor-flower decor-one">✿</span>
+                <span class="decor-flower decor-two">✿</span>
+                <span class="decor-flower decor-three">✧</span>
+                <span class="decor-flower decor-four">✽</span>
+
+                <div class="hero-sticker">
+                    <span>With Love</span>
+                    <small>JUST FOR YOU</small>
+                </div>
+
+                <div class="hero-photo">
+                    <img
+                        src="images/variasi1.jfif"
+                        alt="Buket bunga lavender, putih, dan cream"
+                        fetchpriority="high">
+                </div>
+
+                <div class="hero-note-card">
+                    <strong>A Bloom for You ♡</strong>
+                    <small>Arranged with love and care</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TEKS BERJALAN -->
+        <div class="flower-marquee" aria-label="Flowers for every beautiful moment">
+            <div class="marquee-track">
+
+                <div class="marquee-group">
+                    <span>Flowers for Every Beautiful Moment</span>
+                    <b>✿</b>
+                    <span>Made with Love</span>
+                    <b>✧</b>
+                    <span>Little Flowers, Big Feelings</span>
+                    <b>❀</b>
+                </div>
+
+                <div class="marquee-group" aria-hidden="true">
+                    <span>Flowers for Every Beautiful Moment</span>
+                    <b>✿</b>
+                    <span>Made with Love</span>
+                    <b>✧</b>
+                    <span>Little Flowers, Big Feelings</span>
+                    <b>❀</b>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==========================
+             KATEGORI
+        =========================== -->
+        <section class="categories">
+            <div class="container">
+
+                <p class="section-label">Find Your Favorite</p>
+
+                <h2 class="section-title">
+                    A Flower for Every Feeling
+                </h2>
+
+                <p class="section-description">
+                    Setiap bunga memiliki cerita. Pilih rangkaian
+                    yang paling sesuai untuk menyampaikan perasaanmu.
+                </p>
+
+                <div class="category-grid">
+
+                    <a href="produk.html" class="category-card">
+                        <div class="category-icon">🌹</div>
+                        <h3>Rose Bouquet</h3>
+                        <p>Untuk cinta dan kasih sayang.</p>
+                    </a>
+
+                    <a href="produk.html" class="category-card">
+                        <div class="category-icon">🌻</div>
+                        <h3>Sunny Blooms</h3>
+                        <p>Untuk senyum dan kebahagiaan.</p>
+                    </a>
+
+                    <a href="produk.html" class="category-card">
+                        <div class="category-icon">💐</div>
+                        <h3>Mixed Flowers</h3>
+                        <p>Perpaduan bunga penuh warna.</p>
+                    </a>
+
+                    <a href="produk.html" class="category-card">
+                        <div class="category-icon">🎀</div>
+                        <h3>Special Gifts</h3>
+                        <p>Hadiah manis untuk momen istimewa.</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================
+             PRODUK UNGGULAN
+        =========================== -->
+        <section class="products">
+            <div class="container">
+
+                <p class="section-label">Handpicked with Love</p>
+
+                <h2 class="section-title">
+                    Our Lovely Blooms
+                </h2>
+
+                <p class="section-description">
+                    Kenali beberapa buket pilihan MOLIE BLOOM
+                    yang siap menemani cerita indahmu.
+                </p>
+
+                <div class="product-grid">
+
+                    <!-- PRODUK 1 -->
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            <img
+                                src="images/rose pink.jfif"
+                                alt="Buket mawar pink Rose Whisper"
+                                loading="lazy">
+
+                            <span class="product-tag">Customer Favorite</span>
+                        </div>
+
+                        <div class="product-info">
+                            <h3>Sweet Rose</h3>
+
+                            <p>
+                                Mawar bernuansa lembut untuk
+                                mengungkapkan rasa sayang.
+                            </p>
+
+                            <div class="product-bottom">
+                                <span class="product-price">Rp85.000</span>
+
+                                <button
+                                    type="button"
+                                    class="add-button"
+                                    data-add-to-cart
+                                    data-id="sweet-rose"
+                                    data-name="Sweet Rose"
+                                    data-price="85000">
+                                    + Keranjang
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+                    <!-- PRODUK 2 -->
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            <img
+                                src="images/matahari.jfif"
+                                alt="Buket bunga warna-warni Sunny Bloom"
+                                loading="lazy">
+
+                            <span class="product-tag">A Little Sunshine</span>
+                        </div>
+
+                        <div class="product-info">
+                            <h3>Sunny Day</h3>
+
+                            <p>
+                                Rangkaian cerah untuk membawa
+                                kebahagiaan di hari spesial.
+                            </p>
+
+                            <div class="product-bottom">
+                                <span class="product-price">Rp75.000</span>
+
+                                <button
+                                    type="button"
+                                    class="add-button"
+                                    data-add-to-cart
+                                    data-id="sunny-day"
+                                    data-name="Sunny Day"
+                                    data-price="75000">
+                                    + Keranjang
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+                    <!-- PRODUK 3 -->
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            <img
+                                src="images/baby (1).jfif"
+                                alt="Buket bunga Baby breathe"
+                                loading="lazy">
+
+                            <span class="product-tag">Special Pick</span>
+                        </div>
+
+                        <div class="product-info">
+                            <h3>Cloud Nne</h3>
+
+                            <p>
+                                Kecil, lembut, dan menawan—seperti kebahagiaan sederhana yang membuat hari istimewa.
+                            </p>
+
+                            <div class="product-bottom">
+                                <span class="product-price">Rp70.000</span>
+
+                                <button
+                                    type="button"
+                                    class="add-button"
+                                    data-add-to-cart
+                                    data-id="blush-romance"
+                                    data-name="Blush Romance"
+                                    data-price="120000">
+                                    + Keranjang
+                                </button>
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <a href="produk.html" class="view-all">
+                    Explore All Bouquets <span>↗</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ==========================
+             TENTANG MOLIE BLOOM
+        =========================== -->
+        <section class="story container">
+
+            <div class="story-visual">
+
+                <div class="story-photo">
+                    <img
+                        src="images/variasi2.jfif"
+                        alt="Buket pink dengan pembungkus natural"
+                        loading="lazy">
+                </div>
+
+                <div class="story-decoration">
+                    <span>Bloom</span>
+                    <small>WITH LOVE ♡</small>
+                </div>
+
+            </div>
+
+            <div class="story-content">
+
+                <p class="section-label">The Story Behind Our Flowers</p>
+
+                <h2 class="section-title">
+                    More Than Flowers,
+                    <br>
+                    A Little Piece of Love.
+                </h2>
+
+                <p>
+                    MOLIE BLOOM hadir untuk membantu menyampaikan
+                    perasaan melalui rangkaian bunga yang indah.
+                    Kami percaya bahwa hadiah sederhana dapat
+                    menciptakan kenangan yang berarti.
+                </p>
+
+                <p>
+                    Dari ulang tahun hingga kelulusan, dari ungkapan
+                    cinta hingga ucapan terima kasih, setiap buket
+                    menjadi bagian kecil dari cerita istimewa.
+                </p>
+
+                <a href="tentang.html" class="button button-primary">
+                    Kenali MOLIE BLOOM <span>↗</span>
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================
+             BANNER AJAKAN
+        =========================== -->
+        <section class="cta container">
+
+            <p class="section-label">A Thoughtful Little Gift</p>
+
+            <h2>
+                Make Someone's Day
+                <br>
+                Bloom. ♡
+            </h2>
+
+            <p>
+                Tidak harus menunggu hari istimewa untuk membuat
+                seseorang tersenyum. Pilih buket favoritmu dan
+                bagikan sedikit kebahagiaan hari ini.
+            </p>
+
+            <a href="produk.html" class="button button-primary">
+                Find Your Perfect Bouquet ↗
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- ==========================
+         FOOTER LENGKAP
+    =========================== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <!-- IDENTITAS TOKO -->
+                <div class="footer-brand">
+
+                    <a href="index.html" class="logo">
+                        MOLIE <span>BLOOM.</span>
+                    </a>
+
+                    <p>
+                        Flowers for Every Beautiful Moment.
+                        Menghadirkan rangkaian bunga yang indah
+                        untuk setiap cerita dan momen berharga.
+                    </p>
+
+                    <div class="footer-socials">
+
+                        <a
+                            class="social-circle"
+                            href="https://instagram.com/usernamekamu"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram MOLIE BLOOM">
+                            IG
+                        </a>
+
+                        <a
+                            class="social-circle"
+                            href="https://wa.me/628xxxxxxxxxx"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp MOLIE BLOOM">
+                            WA
+                        </a>
+
+                        <a
+                            class="social-circle"
+                            href="mailto:emailkamu@example.com"
+                            aria-label="Email MOLIE BLOOM">
+                            ✉
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- NAVIGASI -->
+                <div class="footer-column">
+
+                    <h3>Explore</h3>
+
+                    <a href="index.html">Home</a>
+                    <a href="produk.html">Our Products</a>
+                    <a href="tentang.html">Our Story</a>
+                    <a href="kontak.html">Contact Us</a>
+                    <a href="keranjang.html">Shopping Cart</a>
+
+                </div>
+
+                <!-- KONTAK -->
+                <div class="footer-column">
+
+                    <h3>Get in Touch</h3>
+
+                    <div class="contact-line">
+                        <span class="contact-icon">☎</span>
+
+                        <span>
+                            WhatsApp
+                            <br>
+                            <a
+                                href="https://wa.me/0895997547899"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                0895-4533-76990
+                            </a>
+                        </span>
+                    </div>
+
+                    <div class="contact-line">
+                        <span class="contact-icon">◎</span>
+
+                        <span>
+                            Instagram
+                            <br>
+                            <a
+                                href="https://instagram.com/usernamekamu"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                @Moliebloom
+                            </a>
+                        </span>
+                    </div>
+
+                    <div class="contact-line">
+                        <span class="contact-icon">✉</span>
+
+                        <span>
+                            Email
+                            <br>
+                            <a href="mailto:emailkamu@example.com">
+                                MolieBloom@gmail.com
+                            </a>
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- ALAMAT -->
+                <div class="footer-column">
+
+                    <h3>Our Location</h3>
+
+                    <div class="contact-line">
+                        <span class="contact-icon">⌖</span>
+
+                        <span>
+                            <a
+                                href="https://maps.google.com/?q=alamat+toko+kamu"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Jl. Gardenia No. 12, kawasan Taman Bunga, Pekalongan, Jawa Tengah.
+                            </a>
+                        </span>
+                    </div>
+
+                    <div class="contact-line">
+                        <span class="contact-icon">♡</span>
+
+                        <span>
+                            Thank you for supporting
+                            our little flower shop.
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 MOLIE BLOOM. All Rights Reserved.
+                </p>
+
+                <p>
+                    Made with <span>♥</span> and flowers.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- JAVASCRIPT KERANJANG -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

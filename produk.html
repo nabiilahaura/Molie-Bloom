@@ -1,0 +1,1366 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk | MOLIE BLOOM</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #fffaf4;
+            --pink: #f5e5e5;
+            --pink-dark: #ad737d;
+            --pink-deep: #80545c;
+            --green: #e2eadb;
+            --green-dark: #65765e;
+            --text: #554a46;
+            --muted: #8c7d76;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+            padding: 17px 7%;
+            background: rgba(255, 250, 244, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eadfda;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--pink-deep);
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--green-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 23px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--pink-dark);
+        }
+
+        .cart-link {
+            background: var(--pink);
+            color: var(--pink-deep);
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* JUMBOTRON */
+        .product-hero {
+            min-height: 390px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 70px 7%;
+            text-align: center;
+            background: linear-gradient(
+                125deg,
+                #f6e5e6 0%,
+                #fffaf4 48%,
+                #e1eadb 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+            animation: fadeUp 1s ease both;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 17px;
+            margin-bottom: 18px;
+            border: 1px solid #d9c8bd;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.55);
+            color: var(--green-dark);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .product-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 6vw, 67px);
+            line-height: 1.2;
+            color: var(--pink-deep);
+            margin-bottom: 20px;
+        }
+
+        .product-hero h1 span {
+            color: var(--green-dark);
+            font-style: italic;
+        }
+
+        .product-hero p {
+            max-width: 590px;
+            margin: 0 auto 27px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 13px 27px;
+            border-radius: 30px;
+            background: var(--pink-dark);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .hero-button:hover {
+            background: var(--pink-deep);
+            transform: translateY(-4px);
+        }
+
+        .hero-flower {
+            position: absolute;
+            z-index: 1;
+            font-size: clamp(50px, 8vw, 95px);
+            opacity: 0.65;
+            pointer-events: none;
+            animation: floatFlower 5s ease-in-out infinite;
+        }
+
+        .flower-one {
+            top: 32px;
+            left: 8%;
+        }
+
+        .flower-two {
+            right: 8%;
+            bottom: 24px;
+            animation-delay: 1.5s;
+        }
+
+        .flower-three {
+            top: 30px;
+            right: 24%;
+            font-size: 38px;
+            animation-delay: 0.8s;
+        }
+
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            animation: pulse 5s ease-in-out infinite;
+        }
+
+        .circle-one {
+            width: 180px;
+            height: 180px;
+            left: 23%;
+            bottom: -90px;
+        }
+
+        .circle-two {
+            width: 120px;
+            height: 120px;
+            right: 25%;
+            top: -60px;
+        }
+
+        /* BENEFITS */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 30px 7%;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 12px;
+            border-radius: 16px;
+            background: var(--white);
+            border: 1px solid #eee4dc;
+        }
+
+        .benefit-icon {
+            font-size: 25px;
+        }
+
+        .benefit strong {
+            display: block;
+            color: var(--pink-deep);
+            font-size: 13px;
+        }
+
+        .benefit span {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* CATALOG */
+        .catalog {
+            padding: 55px 7% 80px;
+        }
+
+        .section-heading {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        .section-heading .small-title {
+            color: var(--pink-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin: 10px 0;
+            color: var(--pink-deep);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(30px, 4vw, 43px);
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CATEGORY FILTER */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .filter-button {
+            padding: 10px 20px;
+            border: 1px solid #e7d7d2;
+            border-radius: 30px;
+            background: var(--white);
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .filter-button:hover,
+        .filter-button.active {
+            background: var(--green-dark);
+            border-color: var(--green-dark);
+            color: var(--white);
+        }
+
+        /* PRODUCT GRID */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            overflow: hidden;
+            border: 1px solid #eee4dc;
+            border-radius: 23px;
+            background: var(--white);
+            box-shadow: 0 7px 25px rgba(100, 75, 65, 0.045);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 32px rgba(100, 75, 65, 0.11);
+        }
+
+        .product-card[hidden] {
+            display: none;
+        }
+
+        .product-image {
+            position: relative;
+            height: 290px;
+            overflow: hidden;
+            background: var(--pink);
+        }
+
+        .product-card:nth-child(even) .product-image {
+            background: var(--green);
+        }
+
+        .product-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            padding: 6px 12px;
+            border-radius: 30px;
+            background: rgba(255, 250, 244, 0.94);
+            color: var(--pink-deep);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-category {
+            color: var(--green-dark);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .product-info h3 {
+            margin: 6px 0 9px;
+            color: var(--pink-deep);
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+        }
+
+        .product-description {
+            min-height: 48px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #f0e7e1;
+        }
+
+        .product-price {
+            color: var(--pink-deep);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .add-button {
+            border: none;
+            border-radius: 30px;
+            padding: 11px 15px;
+            background: var(--pink-dark);
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .add-button:hover {
+            background: var(--pink-deep);
+            transform: translateY(-2px);
+        }
+
+        .add-button:disabled {
+            opacity: 0.7;
+            cursor: default;
+        }
+
+        /* PROMO BANNER */
+        .promo {
+            margin: 0 7% 80px;
+            padding: 45px 30px;
+            border-radius: 28px;
+            text-align: center;
+            background: linear-gradient(120deg, #f4e2e4, #fdf8ee, #e1e9d9);
+        }
+
+        .promo h2 {
+            margin-bottom: 12px;
+            color: var(--pink-deep);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(27px, 4vw, 39px);
+        }
+
+        .promo p {
+            margin-bottom: 22px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 50px 7% 20px;
+            background: #65745e;
+            color: var(--cream);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 35px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-logo {
+            margin-bottom: 14px;
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: #f4dadd;
+        }
+
+        .footer p {
+            color: #f0eee5;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .footer h3 {
+            margin-bottom: 15px;
+            color: #fff1e9;
+            font-family: "Playfair Display", serif;
+            font-size: 19px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 9px;
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .footer a:hover {
+            color: #f5d8dc;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.22);
+            text-align: center;
+        }
+
+        /* TOAST MESSAGE */
+        .toast {
+            position: fixed;
+            z-index: 200;
+            right: 22px;
+            bottom: 22px;
+            max-width: calc(100% - 44px);
+            padding: 14px 20px;
+            border-radius: 14px;
+            background: var(--green-dark);
+            color: white;
+            font-size: 14px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            opacity: 0;
+            transform: translateY(15px);
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatFlower {
+            0%, 100% {
+                transform: translateY(0) rotate(-7deg);
+            }
+            50% {
+                transform: translateY(-18px) rotate(8deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.45;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 0.9;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 950px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-about {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 15px 5%;
+                gap: 14px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .nav-links {
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .product-hero {
+                min-height: 360px;
+                padding: 60px 6%;
+            }
+
+            .flower-one {
+                left: 2%;
+            }
+
+            .flower-two {
+                right: 2%;
+            }
+
+            .flower-three {
+                right: 10%;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+                padding: 25px 6%;
+                gap: 10px;
+            }
+
+            .benefit {
+                justify-content: flex-start;
+                padding-left: 25px;
+            }
+
+            .catalog {
+                padding: 45px 5% 60px;
+            }
+
+            .product-grid {
+                gap: 14px;
+            }
+
+            .product-image {
+                height: 190px;
+            }
+
+            .product-info {
+                padding: 14px;
+            }
+
+            .product-info h3 {
+                font-size: 18px;
+            }
+
+            .product-description {
+                min-height: 68px;
+                font-size: 12px;
+            }
+
+            .product-bottom {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .product-price {
+                font-size: 14px;
+            }
+
+            .add-button {
+                width: 100%;
+                padding: 10px 8px;
+                font-size: 11px;
+            }
+
+            .promo {
+                margin: 0 5% 55px;
+                padding: 35px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .footer-about {
+                grid-column: auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="index.html" class="logo">MOLIE <span>BLOOM.</span></a>
+
+        <nav class="nav-links" aria-label="Navigasi utama">
+            <a href="index.html">Home</a>
+            <a href="produk.html" class="active">Produk</a>
+            <a href="tentang.html">Tentang Kami</a>
+            <a href="kontak.html">Kontak</a>
+        </nav>
+
+        <a href="keranjang.html" class="cart-link">
+            🛒 Keranjang (<span id="cartCount">0</span>)
+        </a>
+    </header>
+
+    <main>
+        <!-- JUMBOTRON -->
+        <section class="product-hero">
+            <div class="hero-circle circle-one"></div>
+            <div class="hero-circle circle-two"></div>
+
+            <span class="hero-flower flower-one" aria-hidden="true">🌸</span>
+            <span class="hero-flower flower-two" aria-hidden="true">🌷</span>
+            <span class="hero-flower flower-three" aria-hidden="true">✿</span>
+
+            <div class="hero-content">
+                <span class="eyebrow">Flowers Made With Love</span>
+
+                <h1>Temukan Buket <span>Favoritmu</span></h1>
+
+                <p>
+                    Setiap bunga punya cerita. Temukan rangkaian bunga
+                    pilihan untuk merayakan kebahagiaan, menyampaikan
+                    kasih sayang, dan membuat momenmu semakin berkesan.
+                </p>
+
+                <a href="#katalog" class="hero-button">
+                    Jelajahi Koleksi ✿
+                </a>
+            </div>
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits" aria-label="Keunggulan toko">
+            <div class="benefit">
+                <span class="benefit-icon">🌷</span>
+                <div>
+                    <strong>Dirangkai dengan Cinta</strong>
+                    <span>Detail yang indah di setiap buket</span>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <span class="benefit-icon">🎀</span>
+                <div>
+                    <strong>Packaging Estetik</strong>
+                    <span>Cocok untuk hadiah spesial</span>
+                </div>
+            </div>
+
+            <div class="benefit">
+                <span class="benefit-icon">💌</span>
+                <div>
+                    <strong>Untuk Setiap Momen</strong>
+                    <span>Wisuda, ulang tahun, dan lainnya</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT CATALOG -->
+        <section class="catalog" id="katalog">
+            <div class="section-heading">
+                <span class="small-title">Our Flower Collection</span>
+                <h2>Koleksi Buket MOLIE BLOOM</h2>
+                <p>
+                    Pilih rangkaian bunga yang paling cocok untuk
+                    menyampaikan perasaanmu.
+                </p>
+            </div>
+
+            <!-- FILTER -->
+            <div class="filter-buttons" aria-label="Filter kategori produk">
+                <button class="filter-button active" type="button" data-filter="all">
+                    Semua
+                </button>
+                <button class="filter-button" type="button" data-filter="rose">
+                    Rose
+                </button>
+                <button class="filter-button" type="button" data-filter="sunflower">
+                    Sunflower
+                </button>
+                <button class="filter-button" type="button" data-filter="mix">
+                    Mixed Flowers
+                </button>
+                <button class="filter-button" type="button" data-filter="special">
+                    Special
+                </button>
+            </div>
+
+            <div class="product-grid">
+
+                <!-- PRODUCT 1 -->
+                <article class="product-card" data-category="rose">
+                    <div class="product-image">
+                        <img
+                            src="images/rose pinkeu.jfif"
+                            alt="Buket Peony Dream"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Best Seller</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Rose Collection</span>
+                        <h3>Blush Romance</h3>
+                        <p class="product-description">
+                            Selembut rona senja, mawar merah muda hadir untuk menyampaikan kasih sayang, rasa syukur, dan perhatian kecil yang begitu berarti. 
+                            Sebuah keindahan manis untuk seseorang yang selalu istimewa.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp95.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="sweet-rose"
+                                data-name="Sweet Rose"
+                                data-price="85000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <!-- PRODUCT 1 -->
+                <article class="product-card" data-category="rose">
+                    <div class="product-image">
+                        <img
+                            src="images/fuchia affair (1).jfif"
+                            alt="Buket Peony Dream"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Bold Romance</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Rose Collection</span>
+                        <h3>Fuchia Affair</h3>
+                        <p class="product-description">
+                            Berani dalam warna, anggun dalam setiap kelopak. Fuchsia Affair memadukan pesona mawar pink fuchsia yang memikat dengan keindahan yang penuh karakter, 
+                            menjadi ungkapan kasih sayang yang manis, percaya diri, dan tak mudah terlupakan.”
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp105.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="sweet-rose"
+                                data-name="Sweet Rose"
+                                data-price="85000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+
+                <!-- PRODUCT 2 -->
+                <article class="product-card" data-category="sunflower">
+                    <div class="product-image">
+                        <img
+                            src="images/golden radiance.jfif"
+                            alt="Buket Sunny Day"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Cheerful Pick</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Sunflower</span>
+                        <h3> Golden Radiance</h3>
+                        <p class="product-description">
+                            Mekar dalam keindahan yang memikat, Golden Radiance menghadirkan bunga matahari yang cerah untuk menyampaikan cinta, 
+                            kebahagiaan, dan perhatian yang istimewa.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp170.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="sunny-day"
+                                data-name="Sunny Day"
+                                data-price="75000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+<!-- PRODUCT 2 -->
+                <article class="product-card" data-category="sunflower">
+                    <div class="product-image">
+                        <img
+                            src="images/matahari mix (2).jfif"
+                            alt="Buket Sunny Day"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Cheerful Pick</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Sunflower</span>
+                        <h3> Sunshine Reverie</h3>
+                        <p class="product-description">
+                           Perpaduan bunga matahari dan bunga-bunga pilihan yang menciptakan harmoni warna serta keindahan. 
+                           Setiap kelopak membawa cerita manis untuk momen yang tak terlupakan.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp170.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="sunny-day"
+                                data-name="Sunny Day"
+                                data-price="75000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <!-- PRODUCT 3 -->
+                <article class="product-card" data-category="mix">
+                    <div class="product-image">
+                        <img
+                            src="images/mixed flower2.jfif"
+                            alt="Buket Lovely Bloom"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Customer Favorite</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Mixed Flower Colection</span>
+                        <h3>Meadow Bliss</h3>
+                        <p class="product-description">
+                            Terinspirasi dari taman yang bermekaran di bawah cahaya pagi, Meadow Bliss memadukan beragam bunga dalam keindahan yang alami. 
+                            Sebuah hadiah istimewa untuk merayakan kebahagiaan, harapan, dan momen yang berharga.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp145.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="lovely-bloom"
+                                data-name="Lovely Bloom"
+                                data-price="100000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRODUCT 4 -->
+                <article class="product-card" data-category="rose">
+                    <div class="product-image">
+                        <img
+                            src="images/crimson.jfif"
+                            alt="Buket Blush Romance"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Romantic</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Rose Collection</span>
+                        <h3>Crimson Reverie</h3>
+                        <p class="product-description">
+                            Di antara kelopak merah yang memikat, tersimpan ungkapan cinta yang dalam dan tak lekang oleh waktu. Crimson Reverie hadir untuk 
+                            menjadikan setiap momen terasa lebih berani, hangat, dan penuh makna.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp110.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="blush-romance"
+                                data-name="Blush Romance"
+                                data-price="120000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRODUCT 5 -->
+                <article class="product-card" data-category="special">
+                    <div class="product-image">
+                        <img
+                            src="images/peony dream.jfif"
+                            alt="Buket Graduation Bloom"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Romantic Pick</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Special Collection</span>
+                        <h3>Peony Dream</h3>
+                        <p class="product-description">
+                            Kelopak anggun dengan pesona romantis, menghadirkan keindahan yang terasa istimewa.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp150.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="graduation-bloom"
+                                data-name="Graduation Bloom"
+                                data-price="110000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                 <!-- PRODUCT 5 -->
+                <article class="product-card" data-category="special">
+                    <div class="product-image">
+                        <img
+                            src="images/lilu.jfif"
+                            alt="Buket Graduation Bloom"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Mini Pink-Purple Lily Bouquet</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Special Collection</span>
+                        <h3>Lilac Reverie </h3>
+                        <p class="product-description">
+                           Terinspirasi dari lembutnya warna senja, Lilac Reverie memadukan pesona lily pink keunguan dalam rangkaian mungil yang menawan. 
+                           Anggun, lembut, dan penuh makna, seperti keindahan kecil yang ingin disimpan lebih lama.”
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp100.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="graduation-bloom"
+                                data-name="Graduation Bloom"
+                                data-price="110000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PRODUCT 6 -->
+                <article class="product-card" data-category="mix">
+                    <div class="product-image">
+                        <img
+                            src="images/mixed flower1.jfif"
+                            alt="Buket Dreamy Gift"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Sweet Gift</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Mixed Flowers</span>
+                        <h3>Petal Poetry</h3>
+                        <p class="product-description">
+                            Rangkaian kelopak lembut dalam harmoni warna yang menenangkan. Petal Poetry menyimpan keindahan dalam setiap detailnya, 
+                            seperti puisi kecil yang menyampaikan kasih sayang tanpa perlu banyak kata.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp125.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="dreamy-gift"
+                                data-name="Dreamy Gift"
+                                data-price="95000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <!-- PRODUCT 5 -->
+                <article class="product-card" data-category="special">
+                    <div class="product-image">
+                        <img
+                            src="images/lily grace.jfif"
+                            alt="Buket Graduation Bloom"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Elegant Pick</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Special Collection</span>
+                        <h3>Lily Grace</h3>
+                        <p class="product-description">
+                            Keanggunan dalam setiap kelopak, menghadirkan kesan tenang dan berkelas.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp110.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="graduation-bloom"
+                                data-name="Graduation Bloom"
+                                data-price="110000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                <!-- PRODUCT 5 -->
+                <article class="product-card" data-category="special">
+                    <div class="product-image">
+                        <img
+                            src="images/sunny petals.jfif"
+                            alt="Buket Graduation Bloom"
+                            loading="lazy"
+                        >
+                        <span class="product-tag">Cherful Pick</span>
+                    </div>
+
+                    <div class="product-info">
+                        <span class="product-category">Special Collection</span>
+                        <h3>Sunny Petals</h3>
+                        <p class="product-description">
+                           Bunga ceria untuk merayakan hal-hal kecil yang membuat hidup terasa lebih indah.
+                        </p>
+
+                        <div class="product-bottom">
+                            <span class="product-price">Rp85.000</span>
+                            <button
+                                class="add-button"
+                                type="button"
+                                data-id="graduation-bloom"
+                                data-name="Graduation Bloom"
+                                data-price="110000"
+                            >
+                                + Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                
+
+            </div>
+        </section>
+
+        <!-- PROMO BANNER -->
+        <section class="promo">
+            <h2>Satu Buket, Banyak Makna 🌷</h2>
+            <p>
+                Jadikan momen sederhana terasa lebih istimewa
+                dengan rangkaian bunga dari MOLIE BLOOM.
+            </p>
+            <a href="kontak.html" class="hero-button">Konsultasi Pesanan</a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">MOLIE <span>BLOOM.</span></div>
+                <p>
+                    Flowers for Every Beautiful Moment.<br>
+                    Menghadirkan rangkaian bunga yang indah untuk
+                    setiap cerita dan momen berharga.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="produk.html">Produk</a></li>
+                    <li><a href="tentang.html">Tentang Kami</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="keranjang.html">Keranjang</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Informasi Toko</h3>
+                <ul class="footer-links">
+                    <li>📍 Jl. Gardenia No. 12, Pekalongan</li>
+                    <li>
+                        💬 <a href="https://wa.me/6281234567890"
+                              target="_blank" rel="noopener">
+                            WhatsApp toko (0895-4533-76990)
+                        </a>
+                    </li>
+                    <li>
+                        📷 <a href="https://instagram.com/molie.bloom"
+                              target="_blank" rel="noopener">
+                            @Moliebloom
+                        </a>
+                    </li>
+                    <li>
+                        ✉️ <a href="mailto:moliebloom@example.com">
+                            Email MolieBloom@gmail.com
+                        </a>
+                    </li>
+                    <li>🕒 Senin–Sabtu, 08.00–20.00 WIB</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© <span id="currentYear"></span> MOLIE BLOOM. Made with love & flowers 🌷</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        const CART_KEY = "molieBloomCart";
+
+        // Membaca data keranjang dengan aman
+        function getCart() {
+            try {
+                const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+                return Array.isArray(cart) ? cart : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        // Menyimpan isi keranjang
+        function saveCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+        }
+
+        // Memperbarui angka pada tombol keranjang
+        function updateCartCount() {
+            const cartCount = document.getElementById("cartCount");
+            const total = getCart().reduce((sum, item) => {
+                return sum + (Number(item.quantity) || 0);
+            }, 0);
+
+            cartCount.textContent = total;
+        }
+
+        // Pesan kecil setelah produk ditambahkan
+        let toastTimer;
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+        }
+
+        // Menambahkan produk ke keranjang
+        document.querySelectorAll(".add-button").forEach(button => {
+            button.addEventListener("click", () => {
+                const id = button.dataset.id;
+                const name = button.dataset.name;
+                const price = Number(button.dataset.price);
+                const cart = getCart();
+
+                const existingItem = cart.find(item => item.id === id);
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: id,
+                        name: name,
+                        price: price,
+                        quantity: 1
+                    });
+                }
+
+                try {
+                    saveCart(cart);
+                    updateCartCount();
+                    showToast(name + " berhasil ditambahkan ke keranjang! 🌷");
+                } catch (error) {
+                    alert("Keranjang tidak dapat disimpan. Coba periksa pengaturan browser.");
+                }
+            });
+        });
+
+        // Filter kategori produk
+        const filterButtons = document.querySelectorAll(".filter-button");
+        const productCards = document.querySelectorAll(".product-card");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const selectedCategory = button.dataset.filter;
+
+                filterButtons.forEach(item => item.classList.remove("active"));
+                button.classList.add("active");
+
+                productCards.forEach(card => {
+                    const matches =
+                        selectedCategory === "all" ||
+                        card.dataset.category === selectedCategory;
+
+                    card.hidden = !matches;
+                });
+            });
+        });
+
+        // Tahun otomatis pada footer
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        updateCartCount();
+    </script>
+
+</body>
+</html>
