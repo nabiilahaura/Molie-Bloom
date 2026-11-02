@@ -1,0 +1,1204 @@
+/* ========================================
+   MOLIE BLOOM - MAIN STYLESHEET
+   Theme: Pastel Pink, Sage Green & Cream
+======================================== */
+
+/* GOOGLE FONTS
+   Font Playfair Display dan DM Sans
+   dihubungkan melalui HTML
+*/
+
+/* 1. WARNA UTAMA */
+:root {
+    --pink: #e8b9c3;
+    --pink-light: #f9e9ec;
+    --pink-dark: #b86f83;
+
+    --sage: #a8b8a0;
+    --sage-light: #e9eee4;
+    --sage-dark: #657c63;
+
+    --cream: #fffaf4;
+    --white: #ffffff;
+
+    --brown: #55433e;
+    --text: #665954;
+    --muted: #8b7d76;
+
+    --border: #eee3dc;
+    --shadow: 0 8px 25px rgba(85, 67, 62, 0.08);
+
+    --radius: 18px;
+    --transition: 0.3s ease;
+}
+
+/* 2. RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+/* 3. HEADER DAN NAVIGASI */
+.navbar {
+    width: 100%;
+    min-height: 78px;
+    padding: 15px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background: rgba(255, 250, 244, 0.96);
+    border-bottom: 1px solid #eee5dc;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(12px);
+}
+
+.logo,
+.navbar .logo {
+    color: var(--brown);
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.logo span,
+.navbar .logo span {
+    color: var(--pink-dark);
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 27px;
+}
+
+.navbar nav a {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    position: relative;
+    padding: 8px 0;
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: var(--pink-dark);
+    transition: var(--transition);
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--pink-dark);
+}
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+    width: 100%;
+}
+
+/* 4. TOMBOL KERANJANG */
+.cart-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 10px 17px;
+    border-radius: 30px;
+
+    background: var(--sage-dark);
+    color: var(--white);
+
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition: var(--transition);
+}
+
+.cart-button:hover {
+    background: var(--pink-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+#cartCount {
+    min-width: 21px;
+    height: 21px;
+    padding: 0 5px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--sage-dark);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* 5. JUDUL DAN TEKS */
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--brown);
+    line-height: 1.3;
+}
+
+p {
+    color: var(--text);
+}
+
+.section-title,
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--brown);
+    font-size: clamp(29px, 4vw, 42px);
+    font-weight: 500;
+    text-align: center;
+}
+
+.section-subtitle,
+.section-heading p {
+    max-width: 650px;
+    margin: 12px auto 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* 6. TOMBOL UMUM */
+.btn,
+.btn-primary,
+.btn-secondary,
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 13px 25px;
+    border: none;
+    border-radius: 30px;
+
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+
+    transition: var(--transition);
+}
+
+.btn-primary,
+.btn,
+.cta-button {
+    background: var(--sage-dark);
+    color: var(--white);
+}
+
+.btn-primary:hover,
+.btn:hover,
+.cta-button:hover {
+    background: var(--pink-dark);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    border: 1px solid #efd5dc;
+}
+
+.btn-secondary:hover {
+    background: var(--pink-dark);
+    color: var(--white);
+}
+
+/* 7. HERO / BANNER */
+.hero,
+.about-hero,
+.page-header,
+.contact-hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #f8e5e8 0%,
+        #fff8f0 55%,
+        #e9eee4 100%
+    );
+}
+
+.hero {
+    min-height: 480px;
+    padding: 90px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 760px;
+    margin: auto;
+}
+
+.hero h1,
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 65px);
+    color: var(--brown);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero h1 span,
+.hero-title span {
+    color: var(--pink-dark);
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.about-hero,
+.page-header,
+.contact-hero {
+    padding: 75px 7%;
+}
+
+.eyebrow,
+.small-title {
+    color: var(--sage-dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 8px 18px;
+    margin-bottom: 18px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #d9e1d3;
+    border-radius: 30px;
+}
+
+/* 8. DEKORASI BUNGA */
+.flower-decoration {
+    position: absolute;
+    font-size: 60px;
+    opacity: 0.45;
+    pointer-events: none;
+    animation: floatFlower 5s ease-in-out infinite;
+}
+
+.flower-one {
+    left: 8%;
+    top: 18%;
+}
+
+.flower-two {
+    right: 9%;
+    bottom: 13%;
+    animation-delay: 1.5s;
+}
+
+.flower-three {
+    right: 17%;
+    top: 12%;
+    font-size: 35px;
+    animation-delay: 2s;
+}
+
+/* 9. SECTION UMUM */
+section {
+    scroll-margin-top: 85px;
+}
+
+.section {
+    padding: 75px 7%;
+}
+
+.section-heading {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading .small-title {
+    color: var(--pink-dark);
+}
+
+.section-heading h2 {
+    margin: 12px 0;
+}
+
+/* 10. KARTU PRODUK */
+.product-grid,
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.product-card {
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: 0 4px 15px rgba(85, 67, 62, 0.04);
+
+    transition: transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    background: var(--pink-light);
+    aspect-ratio: 4 / 4.2;
+}
+
+.product-image img,
+.product-card > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.04);
+}
+
+.product-info {
+    padding: 22px;
+}
+
+.product-info h3,
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--brown);
+    margin-bottom: 8px;
+}
+
+.product-info p,
+.product-card p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.product-price {
+    display: block;
+    color: var(--pink-dark);
+    font-size: 17px;
+    font-weight: 700;
+    margin: 10px 0 16px;
+}
+
+.product-card .btn,
+.product-card .btn-primary,
+.product-card .add-to-cart {
+    width: 100%;
+}
+
+/* 11. FILTER PRODUK */
+.filter-buttons,
+.category-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.filter-btn,
+.category-btn {
+    padding: 10px 20px;
+    border: 1px solid #e8dcd5;
+    border-radius: 30px;
+    background: var(--white);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active,
+.category-btn:hover,
+.category-btn.active {
+    background: var(--sage-dark);
+    border-color: var(--sage-dark);
+    color: var(--white);
+}
+
+/* 12. BENEFIT / KEUNGGULAN */
+.benefits,
+.benefit-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    padding: 30px 7%;
+    background: var(--sage-light);
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 12px;
+}
+
+.benefit-item .icon {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.benefit-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.benefit-item p {
+    font-size: 12px;
+}
+
+/* 13. CERITA TENTANG KAMI */
+.story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.story-image {
+    position: relative;
+    padding: 0 15px 15px 0;
+    isolation: isolate;
+}
+
+.story-image img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 180px 180px 18px 18px;
+    background: var(--pink-light);
+}
+
+.story-image::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 18px;
+    left: 18px;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--sage);
+    border-radius: 180px 180px 18px 18px;
+}
+
+.story-text h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 14px 0 20px;
+}
+
+.story-text h2 span {
+    color: var(--pink-dark);
+    font-style: italic;
+}
+
+.story-text p {
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 16px;
+}
+
+.signature {
+    color: var(--pink-dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+/* 14. KARTU VISI, MISI, NILAI */
+.values-section {
+    background: #f7e9e9;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.value-card {
+    text-align: center;
+    background: #fffdf9;
+    padding: 35px 25px;
+    border: 1px solid #f0dce0;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow);
+}
+
+.value-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--pink-light);
+    font-size: 30px;
+}
+
+.value-card:nth-child(2) .value-icon {
+    background: var(--sage-light);
+}
+
+.value-card:nth-child(3) .value-icon {
+    background: #f8eee0;
+}
+
+.value-card h3 {
+    font-size: 23px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.value-card p {
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.mission-card {
+    padding: 35px;
+    border-radius: var(--radius);
+    background: var(--white);
+    border: 1px solid var(--border);
+}
+
+.mission-card h3 {
+    color: var(--sage-dark);
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.mission-card p,
+.mission-card li {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.mission-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mission-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1ebe4;
+}
+
+.mission-card li:last-child {
+    border-bottom: none;
+}
+
+.mission-card li::before {
+    content: "✿";
+    color: var(--pink-dark);
+    margin-right: 10px;
+}
+
+/* 15. PROMO / CALL TO ACTION */
+.promo-section,
+.about-cta {
+    padding: 65px 7%;
+    text-align: center;
+    background: linear-gradient(135deg, #e7eee2, #f8e7e9);
+}
+
+.promo-section h2,
+.about-cta h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.promo-section p,
+.about-cta p {
+    max-width: 600px;
+    margin: 0 auto 25px;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* 16. FORM DAN INPUT */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--brown);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid #e8ddd6;
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--text);
+
+    outline: none;
+    transition: border-color var(--transition),
+                box-shadow var(--transition);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(168, 184, 160, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #b5a7a0;
+}
+
+/* 17. KARTU KONTAK */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.contact-card {
+    padding: 28px 22px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    transition: var(--transition);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.contact-card .icon {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.contact-card h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.contact-card p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* 18. KERANJANG */
+.cart-container {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 0 7%;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    font-size: 13px;
+}
+
+.cart-table th {
+    background: var(--sage-light);
+    color: var(--brown);
+    font-weight: 700;
+}
+
+.cart-summary {
+    max-width: 420px;
+    margin: 30px 0 0 auto;
+    padding: 25px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.cart-summary h3 {
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.cart-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+    margin-bottom: 15px;
+    border-top: 1px solid var(--border);
+    font-weight: 700;
+}
+
+.empty-cart {
+    padding: 55px 20px;
+    text-align: center;
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px dashed var(--pink);
+}
+
+.empty-cart h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.empty-cart p {
+    margin-bottom: 20px;
+}
+
+/* 19. PESAN TOAST */
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 2000;
+
+    padding: 14px 22px;
+    border-radius: 12px;
+
+    background: var(--sage-dark);
+    color: var(--white);
+    font-size: 13px;
+
+    box-shadow: var(--shadow);
+    animation: fadeUp 0.3s ease;
+}
+
+/* 20. FOOTER */
+.site-footer,
+footer {
+    background: var(--sage-light);
+}
+
+.site-footer {
+    padding: 45px 7% 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 35px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.footer-brand {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    font-weight: 700;
+    color: var(--brown);
+}
+
+.footer-brand span {
+    color: var(--pink-dark);
+}
+
+.footer-column h3 {
+    color: var(--brown);
+    font-size: 15px;
+    margin: 5px 0 17px;
+}
+
+.footer-column p,
+.footer-column a {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+.footer-column a:hover {
+    color: var(--pink-dark);
+}
+
+.footer-bottom {
+    max-width: 1150px;
+    margin: 30px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid #d2dbcb;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* 21. ANIMASI */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatFlower {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+/* 22. RESPONSIVE TABLET */
+@media (max-width: 1000px) {
+    .navbar {
+        padding: 15px 4%;
+        gap: 15px;
+    }
+
+    .navbar nav {
+        gap: 16px;
+    }
+
+    .logo,
+    .navbar .logo {
+        font-size: 23px;
+    }
+
+    .product-grid,
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .story {
+        gap: 35px;
+    }
+}
+
+/* 23. RESPONSIVE TABLET KECIL */
+@media (max-width: 800px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .navbar nav {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 10px 22px;
+        justify-content: center;
+    }
+
+    .cart-button {
+        padding: 9px 13px;
+    }
+
+    .section {
+        padding: 55px 6%;
+    }
+
+    .story {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .story-image {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .story-image img {
+        height: 380px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .benefits,
+    .benefit-strip {
+        padding: 25px 5%;
+    }
+
+    .flower-one {
+        left: 2%;
+    }
+
+    .flower-two {
+        right: 2%;
+    }
+}
+
+/* 24. RESPONSIVE HP */
+@media (max-width: 550px) {
+    .navbar {
+        padding: 13px 5%;
+    }
+
+    .logo,
+    .navbar .logo {
+        font-size: 22px;
+    }
+
+    .navbar nav {
+        gap: 8px 16px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .cart-button {
+        font-size: 11px;
+        padding: 8px 11px;
+    }
+
+    .hero {
+        min-height: 400px;
+        padding: 65px 6%;
+    }
+
+    .about-hero,
+    .page-header,
+    .contact-hero {
+        padding: 60px 6%;
+    }
+
+    .flower-decoration {
+        font-size: 40px;
+    }
+
+    .flower-three {
+        font-size: 26px;
+    }
+
+    .product-grid,
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .product-card {
+        max-width: 420px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .product-image {
+        aspect-ratio: 4 / 3.5;
+    }
+
+    .benefits,
+    .benefit-strip {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-image img {
+        height: 320px;
+    }
+
+    .mission-card {
+        padding: 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .site-footer {
+        padding: 35px 6% 20px;
+    }
+
+    .cart-container {
+        padding: 0 5%;
+    }
+
+    .cart-table th,
+    .cart-table td {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .cart-summary {
+        max-width: 100%;
+    }
+
+    .toast {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        text-align: center;
+    }
+}
+
+/* 25. AKSESIBILITAS */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
